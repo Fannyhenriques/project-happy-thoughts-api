@@ -40,7 +40,7 @@ const Thought = mongoose.model("Thought", ThoughtSchema);
 app.get("/", (req, res) => {
   res.json({
     message: "Welcome to the HappyThoughts API!",
-    routes: listEndpoints(app), // List all available endpoints
+    // routes: listEndpoints(app), // List all available endpoints
   });
 });
 
