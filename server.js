@@ -5,9 +5,8 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/project-mongo";
+const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/happythoughts";
 mongoose.connect(mongoUrl);
-// mongoose.Promise = Promise;
 
 const port = process.env.PORT || 9000;
 const app = express();
