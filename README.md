@@ -21,9 +21,9 @@ Error handling is implemented using a try-catch block. If any error occurs durin
 
 Connecting to the frontend:
 
-First, I tested the routes using Postman to ensure they were working correctly. After that, I deployed the API to Render with MongoDB Atlas and updated the frontend to use the new URL. Both the GET and POST methods were functional, but to increment the "likes," I modified the POST request for likes to use the PATCH method instead.
+- First, I tested the routes using Postman to ensure they were working correctly. After that, I deployed the API to Render with MongoDB Atlas and updated the frontend to use the new URL. Both the GET and POST methods were functional, but to increment the "likes," I modified the POST request for likes to use the PATCH method instead.
 
-During testing, I noticed that the time displayed when a thought was created was incorrect. Instead of showing "0 seconds ago," it showed "-1 seconds ago." This issue arose because my timeAgo function was not handling the time correctly. To resolve this, I switched to using the external library date-fns to handle the createdAt timestamp properly.
+- During testing, I noticed that the time displayed when a thought was created was incorrect. Instead of showing "0 seconds ago," it showed "-1 seconds ago." This issue arose because my timeAgo function was not handling the time correctly. To resolve this, I switched to using the external library date-fns to handle the createdAt timestamp properly.
 
 ## View it live
 
