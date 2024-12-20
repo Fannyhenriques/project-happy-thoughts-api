@@ -40,7 +40,7 @@ const Thought = mongoose.model("Thought", ThoughtSchema);
 app.get("/", (req, res) => {
   res.json({
     message: "Welcome to the HappyThoughts API!",
-    // routes: listEndpoints(app), // List all available endpoints
+    routes: listEndpoints(app),
   });
 });
 
@@ -56,7 +56,7 @@ app.get("/thoughts", async (req, res) => {
 
 // Posting a new thought 
 app.post("/thoughts", async (req, res) => {
-  const { message } = req.body;
+  const { message } = req.body; //destructuring only the message - heart property is excluded (default is set to 0)
 
   const thought = new Thought({ message });
 
@@ -80,20 +80,13 @@ app.patch("/thoughts/:id/like", async (req, res) => {
       { new: true, runValidators: true } //validates the update so that it follows the schema provided
     );
 
-    if (updatedThought) {
-      res.status(200).json(updatedThought);
-    } else {
-      res.status(404).json({ message: "Thought not found" });
-    }
+    res.status(200).json(updatedThought);
   } catch (error) {
-    console.error("Failed to update hearts:", error);
-    res.status(503).json({ message: "Service Unavailable - Unable to update hearts" });
+    res.status(400).json({ success: false, message: "Failed to update hearts", error: error.message });
   }
 });
-
 
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
-
