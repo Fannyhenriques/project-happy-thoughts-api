@@ -15,11 +15,9 @@ The API includes the following routes:
 - POST "/thoughts": Creates a new thought. You need to provide the message property in the request body. The hearts field is automatically set to 0 and cannot be manually set.
 - PATCH "/thoughts/:id/like": Increments the hearts count by 1 for a specific thought. The thought is identified using its id in the URL path. The mongoDB $inc operator is used to increment the hearts value.
 
-Error Handling
-Error handling is implemented using a try-catch block. If any error occurs during the fetching, posting, or patching of a thought, the system will respond with an appropriate error message:
+Error handling is implemented using a try-catch block. If any error occurs during the fetching, posting, or patching of a thought, the system will respond with a 400 error message.
 
-- 404: If a thought is not found when trying to patch it.
-- 400: If there's an error during the creation of a thought or when updating the hearts count.
+- 404 errors: Initially, I used a 404 error in the PATCH method to handle cases where a thought wasn't found when attempting to increment its likes. However, since it's not possible to "like" a thought that doesn't exist, I removed this check from the PATCH route.
 
 Connecting to the frontend:
 
