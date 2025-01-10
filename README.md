@@ -29,3 +29,7 @@ Connecting to the frontend:
 
 https://project-happy-thoughts-api-vhov.onrender.com
 
+Netlify Link:
+
+https://fh-happythoughtsapp.netlify.app/
+
